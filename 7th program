@@ -1,0 +1,114 @@
+tower of hanoi:
+
+#include<stdio.h>
+#include<conio.h>
+//int count=0;
+void tower(int n,char source,char dest,char spare)
+{
+   if(n==1)
+   {
+     printf("Move disc  from %c to %c\n",source,dest);
+    // count++;
+     return;
+   }
+  else
+   {
+      tower(n-1,source,spare,dest);
+      tower(1,source,dest,spare);
+      tower(n-1,spare,dest,source);
+   }
+}
+
+void main()
+{
+  int  n;
+  clrscr();
+  printf("Enter the number of disc\n");
+  scanf("%d",&n);
+  tower(n,'A','C','B');
+  //printf("Total number of disc moves=%d",count);
+  getch();
+}
+
+
+
+
+
+gcdrec:
+
+#include<stdio.h>
+#include<conio.h>
+int gcd(int m,int n)
+{
+  int rem;
+  rem=m%n;
+  if(rem==0) return n;
+  else
+     return (gcd(n,rem));
+}
+void main()
+{
+  int n,m,res;
+  clrscr();
+  printf("Enter Two number\n");
+  scanf("%d%d",&m,&n);
+  res=gcd(m,n);
+  printf("GCD of %d and %d = %d\n",m,n,res);
+  getch();
+}
+
+
+
+
+
+fib:
+
+#include<stdio.h>
+#include<conio.h>
+int fib(int n)
+{
+  if(n==0)
+    return 0;
+  else if (n==1)
+   return 1;
+   else
+     return (fib(n-1)+fib(n-2));
+}
+void main()
+{
+  int n,i=0,res;
+  clrscr();
+  printf("Enter a number of terms\n");
+  scanf("%d",&n);
+  printf("Fobonacci Series\n");
+  for(i=0;i<n;i++)
+  {
+    res=fib(i);
+    printf("%d\t",res);
+  }
+  getch();
+}
+
+
+
+
+
+factrec:
+
+#include<stdio.h>
+#include<conio.h>
+int fact(int n)
+{
+  if(n==0) return 1;
+  return n*fact(n-1);
+}
+void main()
+{
+  int n,fac;
+  clrscr();
+  printf("Enter a number\n");
+  scanf("%d",&n);
+  fac=fact(n);
+  printf("Factoriali(%d) is %d\n",n,fac);
+  getch();
+}
