@@ -112,3 +112,43 @@ void main()
   printf("Factoriali(%d) is %d\n",n,fac);
   getch();
 }
+
+
+
+
+
+
+The largest number:
+
+#include <stdio.h>
+#include <conio.h>
+
+int find_largest(int arr[], int n) {
+    if (n == 1) {
+        return arr[0]; // Base case: Only one element
+    } else {
+        int max_rest = find_largest(arr, n - 1); // Recursive call for n-1 elements
+        return (arr[n - 1] > max_rest) ? arr[n - 1] : max_rest;
+    }
+}
+
+void main() {
+    int n, i, largest;
+
+    clrscr(); // Clear the screen
+
+    printf("Enter the number of elements: ");
+    scanf("%d", &n);
+
+    int arr[n];
+    printf("Enter %d elements:\n", n);
+
+    for (i = 0; i < n; i++) {
+        scanf("%d", &arr[i]);
+    }
+
+    largest = find_largest(arr, n);
+    printf("The largest number is: %d\n", largest);
+
+    getch(); // Wait for a key press
+}
